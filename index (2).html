@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muhammet ❤️ Buse</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+font-family:Arial,sans-serif;
+background:linear-gradient(135deg,#0b1026,#29104a,#4b0f63);
+color:white;overflow-x:hidden;
+}
+.hero{
+height:100vh;
+display:flex;align-items:center;justify-content:center;
+text-align:center;padding:20px;
+background:radial-gradient(circle at center,rgba(255,255,255,.08),transparent 50%);
+}
+.hero h1{font-size:4rem}
+.hero p{margin-top:15px;font-size:1.2rem}
+.card{
+max-width:1000px;margin:30px auto;padding:25px;
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(10px);
+border-radius:20px;
+}
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px}
+.gallery img{width:100%;border-radius:15px}
+.counter{font-size:2rem;text-align:center}
+button{
+padding:12px 20px;border:none;border-radius:999px;cursor:pointer
+}
+#reason{text-align:center;margin-top:15px;font-size:1.2rem}
+.star{position:fixed;right:20px;bottom:20px;font-size:32px;cursor:pointer}
+</style>
+</head>
+<body>
+<section class="hero">
+<div>
+<h1>Muhammet ❤️ Buse</h1>
+<p>“Bazı insanlar tesadüf gibi gelir, sonra hayatının en güzel parçası olur.”</p>
+</div>
+</section>
+
+<div class="card">
+<h2>⏳ Birlikte Geçen Süre</h2>
+<div id="counter" class="counter"></div>
+</div>
+
+<div class="card">
+<h2>📸 Fotoğraflarımız</h2>
+<p>Fotoğraflarınızı images/foto1.jpg ... foto4.jpg olarak ekleyin.</p>
+<div class="gallery">
+<img src="images/foto1.jpg">
+<img src="images/foto2.jpg">
+<img src="images/foto3.jpg">
+<img src="images/foto4.jpg">
+</div>
+</div>
+
+<div class="card">
+<h2>❤️ Seni Neden Seviyorum?</h2>
+<center><button onclick="showReason()">Göster</button></center>
+<div id="reason"></div>
+</div>
+
+<div class="card">
+<h2>💌 Gizli Mektup</h2>
+<button onclick="secret()">Mektubu Aç</button>
+<p id="letter"></p>
+</div>
+
+<div class="card">
+<h2>🎵 Şarkımız</h2>
+<a style="color:white" target="_blank" href="https://music.youtube.com/watch?v=SIX0xp8T19U&si=2fFQ2Yh7qT3_q75v">Şarkımızı Dinle</a>
+</div>
+
+<div class="star" onclick="surprise()">⭐</div>
+
+<script>
+const startDate=new Date("2025-10-30T00:00:00");
+
+function updateCounter(){
+const now=new Date();
+const diff=Math.abs(now-startDate);
+const days=Math.floor(diff/86400000);
+const hours=Math.floor(diff/3600000)%24;
+const mins=Math.floor(diff/60000)%60;
+const secs=Math.floor(diff/1000)%60;
+document.getElementById("counter").innerText=days+" gün "+hours+" saat "+mins+" dk "+secs+" sn";
+}
+setInterval(updateCounter,1000);updateCounter();
+
+const reasons=[
+"Gülüşün için ❤️",
+"Yanımda olduğun için ❤️",
+"Sesin için ❤️",
+"Birlikte gülebildiğimiz için ❤️",
+"Hayatımı güzelleştirdiğin için ❤️"
+];
+
+function showReason(){
+document.getElementById("reason").innerText=reasons[Math.floor(Math.random()*reasons.length)];
+}
+
+function secret(){
+const pass=prompt("Şifreyi gir");
+if(pass==="07.03.2001"){
+document.getElementById("letter").innerText="Buse, hayatıma kattığın her güzel an için teşekkür ederim. Seni çok seviyorum. ❤️";
+}else{
+alert("Yanlış şifre");
+}
+}
+
+function surprise(){
+alert("Bu evrende en sevdiğim yer senin yanın. ❤️");
+}
+</script>
+</body>
+</html>
